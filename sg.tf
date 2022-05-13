@@ -15,7 +15,7 @@ locals {
 
 
 resource "aws_security_group" "web-sg" {
-   vpc_id = aws_vpc.demovpc.id
+   vpc_id = aws_vpc.dev.id
 
    dynamic "ingress" {
       for_each = local.ingress_rules
@@ -42,7 +42,7 @@ resource "aws_security_group" "web-sg" {
 
 resource "aws_security_group" "db-sg" {
    name   = "resource_without_dynamic_block"
-   vpc_id = aws_vpc.demovpc.id
+   vpc_id = aws_vpc.dev.id
 
    ingress {
       description = "ingress_rule_1"
